@@ -237,7 +237,7 @@ img{max-width:100%;display:block}
 @media(max-width:768px){
 .nav-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#F8F6F1;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;z-index:999}
 .nav-menu.open{display:flex}
-.nav-menu a{font-size:1.1rem;font-weight:600;color:var(--black);letter-spacing:0.1em}}
+.nav-menu a{font-size:0.8rem;font-weight:600;color:var(--black);letter-spacing:0.15em;text-transform:uppercase}}
   .burger{display:flex}
   .wrap.two-col{grid-template-columns:1fr;gap:3rem}
   .v-grid{grid-template-columns:1fr}
