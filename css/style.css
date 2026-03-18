@@ -3,16 +3,16 @@
 
 :root {
   --red: #2761F5;
-  --red2: #365AB5;
-  --black: #0A0A0A;
-  --dark: #111111;
-  --dark2: #181818;
-  --dark3: #222222;
-  --white: #FFFFFF;
-  --off-white: #F5F5F0;
-  --gray: #888888;
-  --gray2: #555555;
-  --border: rgba(255,255,255,0.08);
+  --red2: #5A8BFF;
+  --black: #FFFFFF;
+  --dark: #F5F5F5;
+  --dark2: #EEEEEE;
+  --dark3: #E0E0E0;
+  --white: #0A0A0A;
+  --off-white: #1A1A1A;
+  --gray: #444444;
+  --gray2: #666666;
+  --border: rgba(0,0,0,0.1);
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Cinzel', serif;
