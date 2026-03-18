@@ -225,7 +225,7 @@ img{max-width:100%;display:block}
 .f-bot{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;font-size:0.65rem;letter-spacing:0.05em;color:var(--gray2)}
 
 /* ===== RESPONSIVE ===== */
-@media(max-width:1100px){
+@media(max-width:900px){
   .hero{grid-template-columns:1fr}
   .hero-photo-wrap{height:60vh;padding-top:70px}
   .hero-content{padding:3rem 2rem}
