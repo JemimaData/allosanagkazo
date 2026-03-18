@@ -65,4 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.style.background = '#25D366';
     setTimeout(() => { btn.textContent = 'Envoyer le Message →'; btn.style.background = ''; form.reset(); }, 4000);
   });
-});
+// Slider vidéos
+const track = document.getElementById('videosTrack');
+const btnNext = document.getElementById('slNext');
+const btnPrev = document.getElementById('slPrev');
+if(track && btnNext && btnPrev){
+  let pos = 0;
+  const cardW = 316;
+  const max = track.children.length - 3;
+  btnNext.addEventListener('click', () => { if(pos < max){ pos++; track.style.transform = `translateX(-${pos * cardW}px)`; }});
+  btnPrev.addEventListener('click', () => { if(pos > 0){ pos--; track.style.transform = `translateX(-${pos * cardW}px)`; }});
+}});
