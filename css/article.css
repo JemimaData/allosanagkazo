@@ -1,0 +1,67 @@
+/* ARTICLE PAGE CSS — ALLOS ANAGKAZO */
+
+:root {
+  --blue: #2761F5;
+  --blue2: #5A8BFF;
+  --black: #0A0A0A;
+  --white: #F8F6F1;
+  --dark: #F0EDE6;
+  --text: #0A0A0A;
+  --text2: #333333;
+  --gray: #666666;
+  --gray2: #999999;
+  --border: rgba(0,0,0,0.1);
+  --border2: rgba(0,0,0,0.2);
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--text);font-family:var(--font-sans);font-size:16px;line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+.art-nav{position:sticky;top:0;z-index:100;background:rgba(248,246,241,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.back-btn{font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);transition:letter-spacing 0.3s}
+.back-btn:hover{letter-spacing:0.15em}
+.art-nav-logo{font-family:'Cinzel',serif;font-size:0.8rem;font-weight:700;letter-spacing:0.2em;color:var(--black)}
+.all-btn{font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);transition:color 0.3s}
+.all-btn:hover{color:var(--blue)}
+
+/* ARTICLE */
+.article{max-width:780px;margin:0 auto;padding:4rem 2rem}
+
+.art-header{text-align:center;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border)}
+.art-cat{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);border:1px solid rgba(39,97,245,0.4);padding:0.3rem 0.8rem;margin-bottom:1.5rem}
+.art-header h1{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:1.15;color:var(--black);margin-bottom:1.5rem}
+.art-meta{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;font-size:0.75rem;color:var(--gray2)}
+
+/* BODY */
+.art-body{font-family:var(--font-serif);font-size:1.15rem;color:var(--text2);line-height:1.9}
+.art-intro{font-size:1.35rem;font-style:italic;color:var(--black);margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:2px solid var(--blue);font-weight:400;line-height:1.7}
+.art-body h2{font-family:var(--font-serif);font-size:1.6rem;font-weight:700;color:var(--black);margin:3rem 0 1.2rem}
+.art-body h3{font-family:var(--font-serif);font-size:1.2rem;font-weight:700;color:var(--blue);margin:2rem 0 0.8rem}
+.art-body p{margin-bottom:1.5rem}
+.art-body blockquote{border-left:4px solid var(--blue);padding:1.2rem 1.5rem;margin:2.5rem 0;background:rgba(39,97,245,0.04);font-style:italic;font-size:1.2rem;color:var(--black);line-height:1.7}
+.art-closing{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);font-size:1rem;color:var(--gray)}
+.art-closing strong{color:var(--black)}
+.art-closing em{color:var(--gray)}
+
+/* FOOTER ARTICLE */
+.art-footer{max-width:780px;margin:0 auto;padding:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--border)}
+.btn-back{display:inline-block;background:var(--blue);color:#F8F6F1;font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:0.85rem 1.75rem;transition:all 0.3s}
+.btn-back:hover{background:var(--blue2);transform:translateY(-2px)}
+.share-btns{display:flex;align-items:center;gap:0.75rem;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase}
+.share-btns span{color:var(--gray)}
+.share-fb{background:#1877F2;color:white;padding:0.5rem 1rem}
+.share-wa{background:#25D366;color:white;padding:0.5rem 1rem}
+
+.mini-footer{background:var(--dark);text-align:center;padding:1.5rem;font-size:0.7rem;color:var(--gray2);letter-spacing:0.05em;margin-top:2rem}
+
+@media(max-width:600px){
+  .art-nav{padding:0.85rem 1rem}
+  .art-nav-logo{display:none}
+  .article{padding:2rem 1.25rem}
+  .art-footer{flex-direction:column;align-items:flex-start}
+}
