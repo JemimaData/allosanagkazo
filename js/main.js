@@ -1,0 +1,68 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const navMenu = document.getElementById('navMenu');
+  burger.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+    const s = burger.querySelectorAll('span');
+    if (navMenu.classList.contains('open')) {
+      s[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+      s[1].style.opacity = '0';
+      s[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+    } else {
+      s[0].style.transform = s[1].style.opacity = s[2].style.transform = '';
+      s[1].style.opacity = '1';
+    }
+  });
+  navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navMenu.classList.remove('open');
+    const s = burger.querySelectorAll('span');
+    s[0].style.transform = s[2].style.transform = '';
+    s[1].style.opacity = '1';
+  }));
+
+  // Counters
+  const counters = document.querySelectorAll('.sn');
+  const co = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, target = +el.dataset.t;
+      let cur = 0;
+      const step = target / 80;
+      const timer = setInterval(() => {
+        cur += step;
+        if (cur >= target) { el.textContent = target.toLocaleString('fr-FR'); clearInterval(timer); }
+        else el.textContent = Math.floor(cur).toLocaleString('fr-FR');
+      }, 20);
+      co.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => co.observe(c));
+
+  // Fade in on scroll
+  const fades = document.querySelectorAll('.v-card,.p-card,.post,.book,.ci');
+  const fo = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('show'), i * 80);
+        e.target.classList.add('fade-in');
+        fo.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  fades.forEach(f => { f.classList.add('fade-in'); fo.observe(f); });
+
+  // Contact form
+  const form = document.getElementById('contactForm');
+  if (form) form.addEventListener('submit', e => {
+    e.preventDefault();
+    const btn = form.querySelector('button');
+    btn.textContent = 'Message envoyé ! ✓';
+    btn.style.background = '#25D366';
+    setTimeout(() => { btn.textContent = 'Envoyer le Message →'; btn.style.background = ''; form.reset(); }, 4000);
+  });
+});
