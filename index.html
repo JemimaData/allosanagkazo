@@ -271,10 +271,24 @@
       <div class="rline center"></div>
       <p class="sub light">Votre soutien permet de porter l'Évangile plus loin et de toucher davantage de vies.</p>
       <blockquote class="don-q">« Que celui qui reçoit l'enseignement de la Parole fasse part de tous ses biens à celui qui l'enseigne. »<cite>— Galates 6:6</cite></blockquote>
-      <div class="don-btns">
-        <a href="https://wa.me/22901662120083" target="_blank" class="btn-red">📱 WhatsApp : +229 01 662 120 83</a>
-        <a href="#contact" class="btn-ghost-w">Autres méthodes</a>
-      </div>
+<div class="don-btns" style="flex-direction:column; gap:1rem; align-items:center;">
+
+  <!-- Montants rapides -->
+  <div class="don-amounts">
+    <button class="amt-btn" data-amount="1000">1000 FCFA</button>
+    <button class="amt-btn" data-amount="5000">5000 FCFA</button>
+    <button class="amt-btn" data-amount="10000">10000 FCFA</button>
+  </div>
+
+  <!-- Champ personnalisé -->
+  <input type="number" id="customAmount" placeholder="Entrer un montant (FCFA)" style="padding:10px; border-radius:5px; border:none; width:220px; text-align:center;">
+
+  <!-- Bouton payer -->
+  <button id="payBtn" class="btn-red">
+    💳 Faire un don
+  </button>
+
+</div>
     </div>
   </section>
 
@@ -352,5 +366,50 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+  <script>
+ <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+
+<script>
+  let selectedAmount = 0;
+
+  // Gestion des boutons de montant
+  document.querySelectorAll('.amt-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.amt-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      selectedAmount = parseInt(this.dataset.amount);
+
+      // reset champ perso
+      document.getElementById('customAmount').value = '';
+    });
+  });
+
+  // Si l'utilisateur écrit un montant
+  document.getElementById('customAmount').addEventListener('input', function () {
+    selectedAmount = parseInt(this.value);
+
+    // enlever sélection boutons
+    document.querySelectorAll('.amt-btn').forEach(b => b.classList.remove('active'));
+  });
+
+  // Paiement
+  document.getElementById('payBtn').addEventListener('click', function () {
+
+    if (!selectedAmount || selectedAmount < 100) {
+      alert("Veuillez entrer un montant valide");
+      return;
+    }
+
+    FedaPay.init({
+      public_key: 'VOTRE_CLE_PUBLIQUE', // 🔴 à remplacer
+      transaction: {
+        amount: selectedAmount,
+        description: 'Don pour le ministère ALLOS ANAGKAZO'
+      }
+    });
+  });
+</script>
+</script>
 </body>
 </html>
