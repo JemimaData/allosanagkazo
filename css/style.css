@@ -346,6 +346,55 @@ img{max-width:100%;display:block}
   opacity: 0;
   transition: 0.3s;
 }
+/* ===== GALERIE EVANGELISATION (HORIZONTAL SCROLL) ===== */
+
+.gallery-scroll {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* cacher la scrollbar */
+.gallery-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.g-img {
+  flex: 0 0 auto;
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* effet hover */
+.g-img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* mobile adaptation */
+@media (max-width: 768px) {
+  .g-img {
+    width: 180px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .g-img {
+    width: 150px;
+    height: 120px;
+  }
+}
 
 .gallery-item:hover::after {
   opacity: 1;
