@@ -79,3 +79,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+const gallery = document.querySelector('.gallery-scroll');
+
+let scrollSpeed = 1;
+
+function autoScrollGallery() {
+  if (!gallery) return;
+
+  gallery.scrollLeft += scrollSpeed;
+
+  // recommencer au début quand on arrive à la fin
+  if (gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth) {
+    gallery.scrollLeft = 0;
+  }
+
+  requestAnimationFrame(autoScrollGallery);
+}
+
+autoScrollGallery();
+gallery.addEventListener("mouseenter", () => {
+  scrollSpeed = 0;
+});
+
+gallery.addEventListener("mouseleave", () => {
+  scrollSpeed = 1;
+});
