@@ -126,3 +126,25 @@ lightbox.addEventListener('click', (e) => {
     lightbox.style.display = 'none';
   }
 });
+
+function payPrayer(type) {
+
+  let description = "";
+
+  if(type === "guérison") description = "Recueil de prières - Guérison Divine";
+  if(type === "mariage") description = "Recueil de prières - Union & Mariage";
+  if(type === "delivrance") description = "Recueil de prières - Délivrance";
+
+  FedaPay.init({
+    public_key: "TA_CLE_FEDAPAY_ICI",
+    transaction: {
+      amount: 100,
+      description: description
+    },
+    onComplete: function() {
+      alert("Paiement validé 🙏 Accès au recueil débloqué !");
+      window.location.href = "recueils/" + type + ".pdf";
+    }
+  }).open();
+
+}
